@@ -1,99 +1,56 @@
 import DataStructure.HashMap;
-import DataStructure.HashMapLink;
 import DataStructure.Map;
-import DataStructure.tool;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.List;
+
 
 /**
  * Created by abolfazl on 8/8/2017.
  */
 public class Main {
+    private static ArrayList<String> l = new ArrayList<String>();
+    private static Map<String,ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
+    final static Logger logger = Logger.getLogger(String.valueOf(Main.class));
+
     public static void main(String[] args) throws IOException {
-//        Map<String, Integer> myMap = new HashMapLink<String,Integer>();
-//
-//        for(int i = 0; i < 1000; i += 2)
-//        {
-//            String s = "#" + i;
-//            myMap.put(s, i);
-//        }
-//        System.out.println("Size: " + myMap.size());
-//        for(int i = 0; i < 1000; ++i)
-//        {
-//            String s = "#" + i;
-//            Integer value = myMap.get(s);
-//            System.out.println("Key: " + s + " Value: " + value);
-//        }
-        Map<String,ArrayList<String>> m = new HashMap<String, ArrayList<String>>();
-
-        /////////////
-
-        String line = null;
-        String cvsSplitBy = ",";
-        String splitBy = ",";
-        BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\abolfazl\\Desktop\\a.csv"));
-        while((line = br.readLine()) != null){
-            String[] b = line.split(splitBy);
-            ArrayList<String> l = new ArrayList<String>();
-             ;
-            // use comma as separator
-            String[] country = line.split(cvsSplitBy);
-            l.add(country[0]);
-            l.add(country[1]);
-            l.add(country[2]);
-            l.add(country[3]);
-            l.add(country[4]);
-            l.add(country[5]);
-            m.put(country[2],l);
-            m.put(country[3],l);
-            m.put(country[5],l);
-
-        }
-        br.close();
-        System.out.println(m.get("abolfazl1"));
+        Run();
     }
 
-        /////////////
-//        String csvFile = "C:\Users\abolfazl\Desktop\a.csv";
-//        BufferedReader br = null;
-//        String line = "";
-//        String cvsSplitBy = ",";
-//
-//        try {
-//
-//            br = new BufferedReader(new FileReader(csvFile));
-//            while ((line = br.readLine()) != null) {
-//                List<String> l = null;
-//                // use comma as separator
-//                String[] country = line.split(cvsSplitBy);
-//                l.add(country[1]);
-//                l.add(country[2]);
-//                l.add(country[3]);
-//                l.add(country[4]);
-//                l.add(country[5]);
-//                m.put(country[0],l);
-//
-//
-//            }
-//
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } finally {
-//            if (br != null) {
-//                try {
-//                    br.close();
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }
-        ///////////////
+    private static void Run() throws IOException {
+        PropertyConfigurator.configure("src\\resources\\log4j.properties");
+        String line;
+        String cvsSplitBy = ",";
+        BufferedReader br = null;
+        try {
+            br = new BufferedReader(new FileReader("C:\\Users\\abolfazl\\Desktop1\\a.csv"));
+            logger.info("file reading is succesfully");
+        } catch (FileNotFoundException e) {
+            logger.error(e);
+        }
+        try {
+            while((line = br.readLine()) != null){
+                // use comma as separator
+                String[] country = line.split(cvsSplitBy);
 
-//        m.get("abolfazl1");
+                for (int i = 0; i < 6; i++) {l.add(country[i]);} //create list of variables
+
+                map.put(country[2],l);
+                map.put(country[3],l);
+                map.put(country[5],l);
+
+            }
+        } catch (IOException e) {
+            logger.error(e);
+        }
+        br.close();
+    }
+
+
+
 
 
     }

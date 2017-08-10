@@ -1,0 +1,5 @@
+2017-08-09 15:01:33 INFO  class Main:29 - file reading is succesfully
+2017-08-09 15:03:39 INFO  class Main:30 - file reading is succesfully
+2017-08-09 15:04:05 INFO  class Main:30 - file reading is succesfully
+2017-08-09 15:04:49 INFO  class Main:30 - file reading is succesfully
+2017-08-09 15:09:04 ERROR class Main:32 - java.io.FileNotFoundException: C:\Users\abolfazl\Desktop1\a.csv (The system cannot find the path specified)
