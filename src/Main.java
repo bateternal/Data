@@ -1,5 +1,5 @@
-import DataStructure.HashMap;
-import DataStructure.Map;
+import ir.etick.view.HashMap;
+import ir.etick.model.Map;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 

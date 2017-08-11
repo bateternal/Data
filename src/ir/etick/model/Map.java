@@ -1,4 +1,4 @@
-package DataStructure;
+package ir.etick.model;
 
 /**
  * Created by abolfazl on 8/8/2017.

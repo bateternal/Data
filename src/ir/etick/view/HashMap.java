@@ -1,4 +1,7 @@
-package DataStructure;
+package ir.etick.view;
+
+import ir.etick.model.Map;
+import ir.etick.tool.tool;
 
 /**
  * Created by abolfazl on 8/8/2017.
