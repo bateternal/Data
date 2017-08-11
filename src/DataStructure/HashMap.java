@@ -5,7 +5,7 @@ package DataStructure;
  */
 public class HashMap<K,V> implements Map<K,V> {
     @SuppressWarnings("unchecked")
-    private tool<K,V>[] tools = new tool[100];
+    private tool<K,V>[] tools = new tool[100000];
     private int size;
 
 
@@ -37,18 +37,15 @@ public class HashMap<K,V> implements Map<K,V> {
     @Override
     public V get(K key) {
         int index = getIndex(key);
-        int collisions = 0;
         while (true) {
 
             if (tools[index] == null) {
-                System.out.println("Collisions: " + collisions);
                 return null;
             } else if (tools[index].getKey().equals(key)) {
-                System.out.println("Collisions: " + collisions);
                 return tools[index].getValue();
             } else {
                 index = incIndex(index);
-                ++collisions;
+
             }
         }
     }

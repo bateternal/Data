@@ -6,54 +6,62 @@ import org.apache.log4j.PropertyConfigurator;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Properties;
 
 
 /**
  * Created by abolfazl on 8/8/2017.
+ * yes created.
  */
 public class Main {
-    private static ArrayList<String> l = new ArrayList<String>();
+    private static ArrayList<String> l  = new ArrayList<String>();
     private static Map<String,ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
-    final static Logger logger = Logger.getLogger(String.valueOf(Main.class));
+    private final static Logger logger = Logger.getLogger(String.valueOf(Main.class));
 
     public static void main(String[] args) throws IOException {
         Run();
+        Test();
     }
 
     private static void Run() throws IOException {
-        PropertyConfigurator.configure("src\\resources\\log4j.properties");
-        String line;
+        Properties prop = new Properties();
+        String path = "D:\\java\\HelloPerformance\\src\\resources\\log4j.properties";
+        InputStream input = new FileInputStream(path);
+        prop.load(input);
+        PropertyConfigurator.configure(path);
+        String line = null;
         String cvsSplitBy = ",";
         BufferedReader br = null;
         try {
-            br = new BufferedReader(new FileReader("C:\\Users\\abolfazl\\Desktop1\\a.csv"));
-            logger.info("file reading is succesfully");
-        } catch (FileNotFoundException e) {
-            logger.error(e);
-        }
-        try {
+            path = prop.getProperty("Path");
+            br = new BufferedReader(new FileReader(path));
+            String[] country;
             while((line = br.readLine()) != null){
+                System.out.println(line);
                 // use comma as separator
-                String[] country = line.split(cvsSplitBy);
+                l = new ArrayList<String>();
 
-                for (int i = 0; i < 6; i++) {l.add(country[i]);} //create list of variables
+                country = line.split(cvsSplitBy);
+
+                l.addAll(Arrays.asList(country).subList(0, 6));
 
                 map.put(country[2],l);
                 map.put(country[3],l);
                 map.put(country[5],l);
 
+
             }
-        } catch (IOException e) {
-            logger.error(e);
-        }
-        br.close();
+            logger.info("file reading is succesfully");
+        } catch (IOException e) {logger.error(e);}
+        catch (NullPointerException e){logger.error(e);}
+        if (br != null) {br.close();}
     }
 
-
-
-
-
+    private static void Test(){
+        System.out.println(map.get("11111139"));
     }
+}
 
 
 

@@ -3,3 +3,27 @@
 2017-08-09 15:04:05 INFO  class Main:30 - file reading is succesfully
 2017-08-09 15:04:49 INFO  class Main:30 - file reading is succesfully
 2017-08-09 15:09:04 ERROR class Main:32 - java.io.FileNotFoundException: C:\Users\abolfazl\Desktop1\a.csv (The system cannot find the path specified)
+2017-08-11 19:36:37 ERROR class Main:39 - java.io.FileNotFoundException: C:\Users\abolfazl\Desktop1\a.csv (The system cannot find the path specified)
+2017-08-11 19:39:27 ERROR class Main:39 - java.io.FileNotFoundException: C:\Users\abolfazl\Desktop1\a.csv (The system cannot find the path specified)
+2017-08-11 19:39:27 ERROR class Main:56 - java.lang.NullPointerException
+2017-08-11 19:40:25 ERROR class Main:40 - java.io.FileNotFoundException: C:\Users\abolfazl\Desktop1\a.csv (The system cannot find the path specified)
+2017-08-11 19:40:25 ERROR class Main:57 - java.lang.NullPointerException
+2017-08-11 19:41:39 INFO  class Main:37 - file reading is succesfully
+2017-08-11 19:41:39 ERROR class Main:55 - java.io.IOException: Stream closed
+2017-08-11 19:42:25 INFO  class Main:37 - file reading is succesfully
+2017-08-11 19:47:43 INFO  class Main:39 - file reading is succesfully
+2017-08-11 19:47:43 ERROR class Main:53 - java.io.IOException: Stream closed
+2017-08-11 19:57:13 INFO  class Main:38 - file reading is succesfully
+2017-08-11 19:59:51 INFO  class Main:38 - file reading is succesfully
+2017-08-11 20:00:53 INFO  class Main:38 - file reading is succesfully
+2017-08-11 20:01:20 INFO  class Main:38 - file reading is succesfully
+2017-08-11 20:01:20 ERROR class Main:54 - java.lang.NullPointerException
+2017-08-11 20:01:56 INFO  class Main:38 - file reading is succesfully
+2017-08-11 20:02:39 INFO  class Main:39 - file reading is succesfully
+2017-08-11 20:11:34 INFO  class Main:55 - file reading is succesfully
+2017-08-11 20:13:13 INFO  class Main:55 - file reading is succesfully
+2017-08-11 20:15:10 INFO  class Main:55 - file reading is succesfully
+2017-08-11 20:15:48 INFO  class Main:55 - file reading is succesfully
+2017-08-11 20:18:28 INFO  class Main:55 - file reading is succesfully
+2017-08-11 20:20:12 INFO  class Main:55 - file reading is succesfully
+2017-08-11 20:21:09 INFO  class Main:55 - file reading is succesfully
