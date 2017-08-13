@@ -1,4 +1,5 @@
-import ir.etick.view.HashMap;
+import ir.etick.tool.FileWorker;
+import ir.etick.model.HashMap;
 import ir.etick.model.Map;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -17,11 +18,12 @@ import java.util.Properties;
 public class Main {
     private static ArrayList<String> l  = new ArrayList<String>();
     private static Map<String,ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
-    private final static Logger logger = Logger.getLogger(String.valueOf(Main.class));
+    private final static Logger logger = Logger.getLogger(Main.class);
 
     public static void main(String[] args) throws IOException {
-        Run();
-        Test();
+//        Run();
+//        Test();
+        RunCSV();
     }
 
     private static void Run() throws IOException {
@@ -60,6 +62,11 @@ public class Main {
 
     private static void Test(){
         System.out.println(map.get("11111139"));
+    }
+
+    private static void RunCSV(){
+        FileWorker csv = new FileWorker();
+        csv.Write();
     }
 }
 

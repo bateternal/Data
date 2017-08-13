@@ -1,4 +1,4 @@
-package ir.etick.view;
+package ir.etick.model;
 
 import ir.etick.model.Map;
 import ir.etick.tool.tool;
