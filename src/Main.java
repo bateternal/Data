@@ -1,11 +1,14 @@
 import ir.etick.tool.FileWorker;
 import ir.etick.model.HashMap;
 import ir.etick.model.Map;
+import ir.etick.tool.StaticNameStore;
+import ir.etick.tool.StaticNameStorei;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 
 import java.io.*;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Properties;
@@ -21,26 +24,41 @@ public class Main {
     private final static Logger logger = Logger.getLogger(Main.class);
 
     public static void main(String[] args) throws IOException {
-//        Run();
+        Start();
+        Run();
 //        Test();
         RunCSV();
     }
 
-    private static void Run() throws IOException {
+    private static void Start(){
+        Logger logger = Logger.getLogger(Main.class);
         Properties prop = new Properties();
-        String path = "D:\\java\\HelloPerformance\\src\\resources\\log4j.properties";
-        InputStream input = new FileInputStream(path);
-        prop.load(input);
-        PropertyConfigurator.configure(path);
+        InputStream input;
+        URL location = Main.class.getProtectionDomain().getCodeSource().getLocation();
+        //String locationi = Main.class.getResource("").getPath();
+        try {
+            input = new FileInputStream(location.getFile()+"../../../src/resources/particulars.properties");
+            prop.load(input);
+            StaticNameStore.setFORMAT(prop.getProperty("Formatfile"));
+            StaticNameStore.setNameFile(prop.getProperty("Namefile"));
+            logger.info("static variables stored!");
+        } catch (FileNotFoundException e) {
+            logger.error(e);
+        } catch (IOException e) {
+            logger.error(e);
+        }
+    }
+
+    private static void Run() throws IOException {
         String line = null;
         String cvsSplitBy = ",";
         BufferedReader br = null;
         try {
-            path = prop.getProperty("Path");
-            br = new BufferedReader(new FileReader(path));
+            URL location = Main.class.getProtectionDomain().getCodeSource().getLocation();
+            String path = location.getFile();
+            br = new BufferedReader(new FileReader(path+"../../../users.csv"));
             String[] country;
             while((line = br.readLine()) != null){
-                System.out.println(line);
                 // use comma as separator
                 l = new ArrayList<String>();
 

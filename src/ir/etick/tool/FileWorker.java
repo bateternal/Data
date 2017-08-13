@@ -18,7 +18,7 @@ public class FileWorker {
     private Random random = new Random();
     private Set<Integer> set = new HashSet<Integer>();
     private Set<String> seti = new HashSet<String>();
-    private NameStore nameStore = new NameStore();
+
 
     public void Write(){
         Logger logger = Logger.getLogger(FileWorker.class);
@@ -81,10 +81,10 @@ public class FileWorker {
 
     private void stringAppender() throws IOException {
         int lim;
-        String FORMAT = nameStore.getFORMAT();
-        String NAME_FILE = nameStore.getNAME_FILE();
+        String FORMAT = StaticNameStore.getFORMAT();
+        String NAME_FILE = StaticNameStore.getNameFile();
 
-            PrintWriter pw = new PrintWriter(new File(NAME_FILE + FORMAT));
+          PrintWriter pw = new PrintWriter(new File(NAME_FILE + FORMAT));
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < 1000; i++) {
                 lim = random.nextInt(100000) ;

@@ -1,1 +1,22 @@
 2017-08-12 11:07:08 INFO  FileWorker:28 - CSV file created!
+2017-08-13 10:43:27 INFO  FileWorker:27 - CSV file created!
+2017-08-13 10:44:52 INFO  FileWorker:27 - CSV file created!
+2017-08-13 10:46:30 INFO  FileWorker:27 - CSV file created!
+2017-08-13 11:01:57 INFO  Main:46 - static variables stored!
+2017-08-13 11:01:57 ERROR Main:80 - java.io.FileNotFoundException: D:\java\HelloPerformance\out\production\HelloPerformance (Access is denied)
+2017-08-13 11:01:57 INFO  FileWorker:27 - CSV file created!
+2017-08-13 11:03:03 INFO  Main:46 - static variables stored!
+2017-08-13 11:03:03 ERROR Main:80 - java.io.FileNotFoundException: D:\java\HelloPerformance\out\production\HelloPerformance\..\..\..\src\aa.csv (The system cannot find the file specified)
+2017-08-13 11:03:03 INFO  FileWorker:27 - CSV file created!
+2017-08-13 11:03:29 INFO  Main:46 - static variables stored!
+2017-08-13 11:03:29 INFO  Main:79 - file reading is succesfully
+2017-08-13 11:03:29 INFO  FileWorker:27 - CSV file created!
+2017-08-13 11:04:12 INFO  Main:46 - static variables stored!
+2017-08-13 11:04:12 INFO  Main:79 - file reading is succesfully
+2017-08-13 11:04:12 INFO  FileWorker:27 - CSV file created!
+2017-08-13 11:04:31 INFO  Main:46 - static variables stored!
+2017-08-13 11:04:31 INFO  Main:78 - file reading is succesfully
+2017-08-13 11:04:31 INFO  FileWorker:27 - CSV file created!
+2017-08-13 11:05:08 INFO  Main:44 - static variables stored!
+2017-08-13 11:05:08 INFO  Main:75 - file reading is succesfully
+2017-08-13 11:05:09 INFO  FileWorker:27 - CSV file created!
