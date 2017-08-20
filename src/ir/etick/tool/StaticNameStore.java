@@ -12,9 +12,9 @@ public class StaticNameStore {
 
     private static StaticNameStore ourInstance = new StaticNameStore();
 
-    public static StaticNameStore getInstance() {
-        return ourInstance;
-    }
+//    public static StaticNameStore getInstance() {
+//        return ourInstance;
+//    }
 
     private StaticNameStore() {
     }

@@ -9,6 +9,7 @@ import org.apache.log4j.PropertyConfigurator;
 
 import java.io.*;
 import java.net.URL;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Properties;
@@ -23,11 +24,13 @@ public class Main {
     private static Map<String,ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
     private final static Logger logger = Logger.getLogger(Main.class);
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException {
         Start();
-        Run();
-//        Test();
-        RunCSV();
+//        Run();
+////        Test();
+//        RunCSV();
+        sqlGetter();
+        Test();
     }
 
     private static void Start(){
@@ -78,11 +81,52 @@ public class Main {
         if (br != null) {br.close();}
     }
 
-    private static void Test(){
-        System.out.println(map.get("11111139"));
+    private static void sqlGetter() throws SQLException, ClassNotFoundException {
+        String myDriver = "com.mysql.jdbc.Driver";
+        String myUrl = "jdbc:mysql://127.0.0.1:3306/test";
+        Class.forName(myDriver);
+        Connection conn = DriverManager.getConnection(myUrl, "root", "09127782297");
+        String query = "select * from userss";
+        Statement st = conn.createStatement();
+        ResultSet rs = st.executeQuery(query);
+
+
+        while (rs.next())
+        {
+            String name = rs.getString("name");
+            String lastName = rs.getString("lastname");
+            String mellicode = rs.getString("mellicode");
+            String number = rs.getString("number");
+            String amount = rs.getString("amount");
+            String cardnumber = rs.getString("cardnumber");
+
+            // print the results
+
+
+            l = new ArrayList<String>();
+            l.add(name);
+            l.add(lastName);
+            l.add(mellicode);
+            l.add(number);
+            l.add(amount);
+            l.add(cardnumber);
+
+            //l.addAll(Arrays.asList(country).subList(0, 6));
+
+
+            map.put(mellicode,l);
+            map.put(number,l);
+            map.put(cardnumber,l);
+
+        }
+        st.close();
     }
 
-    private static void RunCSV(){
+    private static void Test(){
+        System.out.println(map.get("71528665"));
+    }
+
+    private static void RunCSV() throws SQLException, ClassNotFoundException {
         FileWorker csv = new FileWorker();
         csv.Write();
     }

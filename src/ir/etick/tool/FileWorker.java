@@ -4,6 +4,10 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 import java.io.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Properties;
 import java.util.Random;
@@ -20,7 +24,7 @@ public class FileWorker {
     private Set<String> seti = new HashSet<String>();
 
 
-    public void Write(){
+    public void Write() throws SQLException, ClassNotFoundException {
         Logger logger = Logger.getLogger(FileWorker.class);
         try {
             stringAppender();
@@ -42,7 +46,7 @@ public class FileWorker {
             a = r.nextInt(9);
             s = s + String.valueOf(a);
         }
-        if(seti.contains(s)) return setOctet(r.nextInt(10000));
+        if(seti.contains(s)) return setOctet(r.nextInt(100000000));
         else {
             seti.add(s);
             return s;
@@ -57,7 +61,7 @@ public class FileWorker {
             a = r.nextInt(9);
             s = s + String.valueOf(a);
         }
-        if(seti.contains(s)) return setTen(r.nextInt(10000));
+        if(seti.contains(s)) return setTen(r.nextInt(100000000));
         else {
             seti.add(s);
             return s;
@@ -72,40 +76,55 @@ public class FileWorker {
             a = r.nextInt(9);
             s = s + String.valueOf(a);
         }
-        if(seti.contains(s)) return setSixteen(r.nextInt(10000));
+        if(seti.contains(s)) return setSixteen(r.nextInt(1000000));
         else {
             seti.add(s);
             return s;
         }
     }
 
-    private void stringAppender() throws IOException {
+    private void stringAppender() throws IOException, SQLException, ClassNotFoundException {
         int lim;
-        String FORMAT = StaticNameStore.getFORMAT();
-        String NAME_FILE = StaticNameStore.getNameFile();
-
-          PrintWriter pw = new PrintWriter(new File(NAME_FILE + FORMAT));
-            StringBuilder sb = new StringBuilder();
+        set.clear();
+        System.out.println(set);
+        String myDriver = "com.mysql.jdbc.Driver";
+        String myUrl = "jdbc:mysql://127.0.0.1:3306/test";
+        Class.forName(myDriver);
+        Connection conn = DriverManager.getConnection(myUrl, "root", "09127782297");
+            StringBuilder sb ;
             for (int i = 0; i < 1000; i++) {
+                sb = new StringBuilder();
                 lim = random.nextInt(100000) ;
                 while (set.contains(lim)){
                     lim = random.nextInt(100000);
                 }
                 set.add(lim);
-                sb.append("abolfazl").append(String.valueOf(lim));
+                sb.append("\'abolfazl").append(String.valueOf(i)).append("\'");
                 sb.append(',');
-                sb.append("taheri").append(String.valueOf(lim));
+                sb.append("\'taheri").append(String.valueOf(i)).append("\'");
                 sb.append(',');
-                sb.append(setTen(lim));
+                sb.append("\'").append(setTen(lim)).append("\'");
                 sb.append(',');
-                sb.append(setOctet(lim));
+                sb.append("\'").append(setOctet(lim)).append("\'");
                 sb.append(',');
-                sb.append(String.valueOf(lim));
+                sb.append("\'").append(String.valueOf(lim)).append("\'");
                 sb.append(',');
-                sb.append(setSixteen(lim));
-                sb.append('\n');
-        }
-        pw.write(sb.toString());
-        pw.close();
+                sb.append("\'").append(setSixteen(lim)).append("\'");
+                //sb.append('\n');
+                String s ="1,1,1,1,1,1";
+                String query = "insert into userss(name,lastname,mellicode,number,amount,cardnumber) values("+sb.toString()+")";
+                PreparedStatement preparedStmt = conn.prepareStatement(query);
+                preparedStmt.executeUpdate();
+            }
+
+
+
+
+        // execute the java preparedstatement
+        //preparedStmt.executeUpdate();
+
+        conn.close();
     }
+
+
 }
