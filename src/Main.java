@@ -28,8 +28,8 @@ public class Main {
         Start();
 //        Run();
 ////        Test();
-//        RunCSV();
-        sqlGetter();
+        RunCSV();
+        //sqlGetter();
         Test();
     }
 
@@ -83,22 +83,31 @@ public class Main {
 
     private static void sqlGetter() throws SQLException, ClassNotFoundException {
         String myDriver = "com.mysql.jdbc.Driver";
-        String myUrl = "jdbc:mysql://127.0.0.1:3306/test";
+        String myUrl = "jdbc:mysql://127.0.0.1:3306/bank";
         Class.forName(myDriver);
         Connection conn = DriverManager.getConnection(myUrl, "root", "09127782297");
-        String query = "select * from userss";
+        String query = "select * from contact";
         Statement st = conn.createStatement();
         ResultSet rs = st.executeQuery(query);
 
+
+        ResultSet rst;
 
         while (rs.next())
         {
             String name = rs.getString("name");
             String lastName = rs.getString("lastname");
             String mellicode = rs.getString("mellicode");
-            String number = rs.getString("number");
-            String amount = rs.getString("amount");
-            String cardnumber = rs.getString("cardnumber");
+            int id = rs.getInt("id");
+            query = "select * from bankaccount where ContactID="+id+"";
+            rst = st.executeQuery(query);
+            String NumberAccount = rst.getString("NumberAccount");
+            id = rst.getInt("id");
+            query = "select * from card where BankID="+id+"";
+            rst = st.executeQuery(query);
+            String amount = rst.getString("amount");
+            String cardnumber = rst.getString("cardnumber");
+
 
             // print the results
 
@@ -107,7 +116,7 @@ public class Main {
             l.add(name);
             l.add(lastName);
             l.add(mellicode);
-            l.add(number);
+            l.add(NumberAccount);
             l.add(amount);
             l.add(cardnumber);
 
@@ -115,7 +124,7 @@ public class Main {
 
 
             map.put(mellicode,l);
-            map.put(number,l);
+            map.put(NumberAccount,l);
             map.put(cardnumber,l);
 
         }

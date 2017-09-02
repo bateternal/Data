@@ -9,6 +9,7 @@ import java.util.Properties;
 
 /**
  * Created by abolfazl on 8/12/2017.
+ *
  */
 public class StaticNameStorei {
     private static String NAME_FILE;

@@ -5,6 +5,7 @@ import ir.etick.tool.tool;
 
 /**
  * Created by abolfazl on 8/8/2017.
+ *
  */
 public class HashMap<K,V> implements Map<K,V> {
     @SuppressWarnings("unchecked")

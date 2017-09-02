@@ -4,10 +4,7 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 import java.io.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.HashSet;
 import java.util.Properties;
 import java.util.Random;
@@ -88,32 +85,53 @@ public class FileWorker {
         set.clear();
         System.out.println(set);
         String myDriver = "com.mysql.jdbc.Driver";
-        String myUrl = "jdbc:mysql://127.0.0.1:3306/test";
+        String myUrl = "jdbc:mysql://127.0.0.1:3306/etick";
         Class.forName(myDriver);
         Connection conn = DriverManager.getConnection(myUrl, "root", "09127782297");
             StringBuilder sb ;
             for (int i = 0; i < 1000; i++) {
+                System.out.println(i);
                 sb = new StringBuilder();
                 lim = random.nextInt(100000) ;
                 while (set.contains(lim)){
                     lim = random.nextInt(100000);
                 }
                 set.add(lim);
-                sb.append("\'abolfazl").append(String.valueOf(i)).append("\'");
+                StringBuilder name = new StringBuilder();
+                name.append("\'abolfazl").append(String.valueOf(i)).append("\'");
+                sb.append(name);
                 sb.append(',');
                 sb.append("\'taheri").append(String.valueOf(i)).append("\'");
                 sb.append(',');
                 sb.append("\'").append(setTen(lim)).append("\'");
-                sb.append(',');
-                sb.append("\'").append(setOctet(lim)).append("\'");
-                sb.append(',');
-                sb.append("\'").append(String.valueOf(lim)).append("\'");
-                sb.append(',');
-                sb.append("\'").append(setSixteen(lim)).append("\'");
-                //sb.append('\n');
-                String s ="1,1,1,1,1,1";
-                String query = "insert into userss(name,lastname,mellicode,number,amount,cardnumber) values("+sb.toString()+")";
+//                sb.append(',');
+//                sb.append("\'").append(setOctet(lim)).append("\'");
+//                sb.append(',');
+//                sb.append("\'").append(String.valueOf(lim)).append("\'");
+//                sb.append(',');
+//                sb.append("\'").append(setSixteen(lim)).append("\'");
+//                //sb.append('\n');
+                int id = 0;
+                String query = "insert into contact(first_name,last_name,melli_code) values("+sb.toString()+")";
                 PreparedStatement preparedStmt = conn.prepareStatement(query);
+                preparedStmt.executeUpdate();
+                query = "select * from contact where first_name="+name+"";
+                Statement st = conn.createStatement();
+                ResultSet rs = st.executeQuery(query);
+                while(rs.next()) {
+                    id = rs.getInt("id");
+                    query = "insert into bank_account(Number_Account,ContactID) values(" + setOctet(lim) + "," + id + ")";
+                }
+                preparedStmt = conn.prepareStatement(query);
+                preparedStmt.executeUpdate();
+                query = "select * from bank_account where ContactID="+id+"";
+                st = conn.createStatement();
+                rs = st.executeQuery(query);
+                while (rs.next()) {
+                    id = rs.getInt("id");
+                    query = "insert into card(card_number,amount,BankID) values(" + setSixteen(lim) + "," + lim + "," + id + ")";
+                }
+                preparedStmt = conn.prepareStatement(query);
                 preparedStmt.executeUpdate();
             }
 

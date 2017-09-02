@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="etick@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="etick">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="a"/>
+    <schema id="4" parent="1" name="b"/>
+    <schema id="5" parent="1" name="bank"/>
+    <schema id="6" parent="1" name="information_schema"/>
+    <schema id="7" parent="1" name="javahelps"/>
+    <schema id="8" parent="1" name="mysql"/>
+    <schema id="9" parent="1" name="new_schema"/>
+    <schema id="10" parent="1" name="performance_schema"/>
+    <schema id="11" parent="1" name="sakila"/>
+    <schema id="12" parent="1" name="test"/>
+    <schema id="13" parent="1" name="userlogin"/>
+    <schema id="14" parent="1" name="world"/>
+    <table id="15" parent="2" name="bank_account"/>
+    <table id="16" parent="2" name="card"/>
+    <table id="17" parent="2" name="contact"/>
+    <column id="18" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="19" parent="15" name="Number_Account">
+      <Position>2</Position>
+      <DataType>varchar(8)|0</DataType>
+    </column>
+    <column id="20" parent="15" name="ContactID">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="21" parent="15" name="ContactID">
+      <ColNames>ContactID</ColNames>
+    </index>
+    <key id="22" parent="15" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="23" parent="15" name="bank_account_ibfk_1">
+      <ColNames>ContactID</ColNames>
+      <RefSchemaName>etick</RefSchemaName>
+      <RefTableName>contact</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="24" parent="16" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="25" parent="16" name="card_number">
+      <Position>2</Position>
+      <DataType>varchar(16)|0</DataType>
+    </column>
+    <column id="26" parent="16" name="amount">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="27" parent="16" name="BankID">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="28" parent="16" name="BankID">
+      <ColNames>BankID</ColNames>
+    </index>
+    <key id="29" parent="16" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="30" parent="16" name="card_ibfk_1">
+      <ColNames>BankID</ColNames>
+      <RefSchemaName>etick</RefSchemaName>
+      <RefTableName>bank_account</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="31" parent="17" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="32" parent="17" name="melli_code">
+      <Position>2</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="33" parent="17" name="first_name">
+      <Position>3</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="34" parent="17" name="last_name">
+      <Position>4</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <key id="35" parent="17" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

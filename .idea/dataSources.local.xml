@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="test@127.0.0.1" uuid="d270f865-bf80-481b-a34d-518ced86a044">
+    <data-source name="test@localhost" uuid="9b52b2b7-064b-491c-9565-26efb528c855">
       <database-info product="MySQL" version="5.6.12" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.40 ( Revision: 402933ef52cad9aa82624e80acbea46e3a701ce6 )">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
@@ -10,6 +10,16 @@
       <secret-storage>master_key</secret-storage>
       <user-name>root</user-name>
       <resolve-scope>test:</resolve-scope>
+    </data-source>
+    <data-source name="etick@localhost" uuid="e2a34091-7d7c-4fae-a812-a262dc199d85">
+      <database-info product="MySQL" version="5.6.12" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.40 ( Revision: 402933ef52cad9aa82624e80acbea46e3a701ce6 )">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <resolve-scope>etick:</resolve-scope>
     </data-source>
   </component>
 </project>
