@@ -4,10 +4,12 @@
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
-          <unit-entry name="hibernate.cfg.xml" value="e2a34091-7d7c-4fae-a812-a262dc199d85" />
+          <unit-entry name="hibernate.cfg.xml" value="bd38afdb-f314-49c7-95f8-75f35bfc5861" />
         </datasource-map>
         <naming-strategy-map />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$USER_HOME$/Desktop/sherover/work/src/hibernate.cfg.xml" />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/hibernate.cfg.xml" />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/ir/etick/hibernate.cfg.xml" />
       </configuration>
     </facet>
   </component>
@@ -18,7 +20,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/../HashMap-master/EsperDataFusion.jar!/" />
@@ -27,7 +29,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/../log4j-1.2.15.jar!/" />
@@ -36,7 +38,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
           <root url="jar://$USER_HOME$/Desktop/log4j-1.2.15.jar!/" />
@@ -63,20 +65,11 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="Hibernate 5.2.10-5.2.10" level="project" />
+    <orderEntry type="library" exported="" name="Hibernate 5.2.10-5.2.10" level="project" />
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
           <root url="jar://$USER_HOME$/Desktop/sherover/ejb3-persistence.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/sherover/hibernate-annotations.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -94,10 +87,51 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/sherover/hibernate3.jar!/" />
+          <root url="jar://$USER_HOME$/Desktop/sherover/hibernate-annotations.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Desktop/sherover/hibernate-core-4.0.0.CR2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Desktop/sherover/hibernate-3.2.3.ga.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <ANNOTATIONS>
+          <root url="jar://$USER_HOME$/Desktop/sherover/apache-maven-2.2.1.jar!/" />
+        </ANNOTATIONS>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Desktop/sherover/apache-maven-2.2.1.jar!/" />
+          <root url="jar://$USER_HOME$/Desktop/sherover/apache-maven-2.2.1.jar!/" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="jar://$USER_HOME$/Desktop/sherover/apache-maven-2.2.1.jar!/" />
+        </JAVADOC>
+        <NATIVE>
+          <root url="jar://$USER_HOME$/Desktop/sherover/apache-maven-2.2.1.jar!/" />
+        </NATIVE>
+        <SOURCES>
+          <root url="jar://$USER_HOME$/Desktop/sherover/apache-maven-2.2.1.jar!/" />
+          <root url="jar://$USER_HOME$/Desktop/sherover/apache-maven-2.2.1.jar!/" />
+        </SOURCES>
+        <jarDirectory url="jar://$USER_HOME$/Desktop/sherover/apache-maven-2.2.1.jar!/" recursive="false" />
+        <jarDirectory url="jar://$USER_HOME$/Desktop/sherover/apache-maven-2.2.1.jar!/" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
   </component>

@@ -1,18 +1,31 @@
-package ir.etick.tool;
+package ir.etick.hibernate;
 
 import javax.persistence.*;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 /**
- * Created by abolfazl on 9/2/2017.
+ * Created by abolfazl on 9/6/2017.
  */
 @Entity
-@Table(name = "card", schema = "etick")
+@Table(name = "card",catalog = "etick")
 public class CardEntity {
     private int id;
     private String cardNumber;
     private Integer amount;
+    private BankAccountEntity bankAccountEntity;
+
+    @ManyToOne
+    public BankAccountEntity getBankAccountEntity() {
+        return bankAccountEntity;
+    }
+
+    public void setBankAccountEntity(BankAccountEntity bankAccountEntity) {
+        this.bankAccountEntity = bankAccountEntity;
+    }
 
     @Id
+    @GeneratedValue(strategy = IDENTITY)
     @Column(name = "id", nullable = false)
     public int getId() {
         return id;

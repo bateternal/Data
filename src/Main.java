@@ -1,18 +1,23 @@
-import ir.etick.tool.FileWorker;
+
+import ir.etick.hibernate.BankAccountEntity;
+import ir.etick.hibernate.ContactEntity;
+import ir.etick.tools.FileWorker;
 import ir.etick.model.HashMap;
 import ir.etick.model.Map;
-import ir.etick.tool.StaticNameStore;
-import ir.etick.tool.StaticNameStorei;
+import ir.etick.tools.StaticNameStore;
+import ir.etick.utils.HibernateUtil;
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 
 import java.io.*;
 import java.net.URL;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Properties;
+import java.util.*;
 
 
 /**
@@ -28,9 +33,44 @@ public class Main {
         Start();
 //        Run();
 ////        Test();
-        RunCSV();
-        //sqlGetter();
-        Test();
+//        RunCSV();
+//        //sqlGetter();
+//        Test();y
+// ();
+        System.out.println(111111111);
+        test2();
+        System.out.println(1111111);
+    }
+
+    private static void test2(){
+//        Configuration cfg = new Configuration();
+//        cfg.configure("hibernate.cfg.xml");
+//        SessionFactory factory= cfg.buildSessionFactory();
+//        Session session= (Session) factory.openSession();
+//        session.beginTransaction();
+        System.out.println("Hibernate one to many (Annotation)");
+        Session session = HibernateUtil.getSessionFactory().openSession();
+
+        session.beginTransaction();
+
+        ContactEntity contactEntity= new ContactEntity();
+        contactEntity.setId(111);
+        contactEntity.setFirstName("abolfazl");
+        contactEntity.setLastName("taheri");
+        contactEntity.setMellicode("0021369917");
+        session.save(contactEntity);
+
+        BankAccountEntity bankAccountEntity = new BankAccountEntity();
+        bankAccountEntity.setId(2);
+        bankAccountEntity.setNumberAccount("12345678");
+
+        bankAccountEntity.setContactEntity(contactEntity);
+        contactEntity.getBankAccountEntity().add(bankAccountEntity);
+
+        session.save(bankAccountEntity);
+
+        session.getTransaction().commit();
+        ;
     }
 
     private static void Start(){
@@ -80,7 +120,7 @@ public class Main {
         catch (NullPointerException e){logger.error(e);}
         if (br != null) {br.close();}
     }
-
+/*
     private static void sqlGetter() throws SQLException, ClassNotFoundException {
         String myDriver = "com.mysql.jdbc.Driver";
         String myUrl = "jdbc:mysql://127.0.0.1:3306/bank";
@@ -130,6 +170,7 @@ public class Main {
         }
         st.close();
     }
+    */
 
     private static void Test(){
         System.out.println(map.get("71528665"));

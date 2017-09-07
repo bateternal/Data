@@ -1,12 +1,10 @@
-package ir.etick.tool;
+package ir.etick.tools;
 
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 
 import java.io.*;
 import java.sql.*;
 import java.util.HashSet;
-import java.util.Properties;
 import java.util.Random;
 import java.util.Set;
 

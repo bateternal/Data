@@ -1,7 +1,6 @@
 package ir.etick.model;
 
-import ir.etick.model.Map;
-import ir.etick.tool.tool;
+import ir.etick.tools.tool;
 
 /**
  * Created by abolfazl on 8/8/2017.

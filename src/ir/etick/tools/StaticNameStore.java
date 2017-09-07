@@ -1,7 +1,4 @@
-package ir.etick.tool;
-
-import java.io.InputStream;
-import java.util.Properties;
+package ir.etick.tools;
 
 /**
  * Created by abolfazl on 8/13/2017.

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="etick@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="etick">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="a"/>
+    <schema id="4" parent="1" name="b"/>
+    <schema id="5" parent="1" name="bank"/>
+    <schema id="6" parent="1" name="information_schema"/>
+    <schema id="7" parent="1" name="javahelps"/>
+    <schema id="8" parent="1" name="mysql"/>
+    <schema id="9" parent="1" name="new_schema"/>
+    <schema id="10" parent="1" name="performance_schema"/>
+    <schema id="11" parent="1" name="sakila"/>
+    <schema id="12" parent="1" name="test"/>
+    <schema id="13" parent="1" name="test4"/>
+    <schema id="14" parent="1" name="userlogin"/>
+    <schema id="15" parent="1" name="world"/>
+    <table id="16" parent="2" name="bank_account"/>
+    <table id="17" parent="2" name="card"/>
+    <table id="18" parent="2" name="contact"/>
+    <table id="19" parent="2" name="hibernate_sequence"/>
+    <table id="20" parent="2" name="transaction"/>
+    <column id="21" parent="16" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="22" parent="16" name="Number_Account">
+      <Position>2</Position>
+      <DataType>varchar(8)|0</DataType>
+    </column>
+    <column id="23" parent="16" name="contactEntity_id">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="24" parent="16" name="FK7y1apwfxyqk7742mvd8cyeabl">
+      <ColNames>contactEntity_id</ColNames>
+    </index>
+    <key id="25" parent="16" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="26" parent="16" name="FK7y1apwfxyqk7742mvd8cyeabl">
+      <ColNames>contactEntity_id</ColNames>
+      <RefSchemaName>etick</RefSchemaName>
+      <RefTableName>contact</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="27" parent="17" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="17" name="amount">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="29" parent="17" name="card_number">
+      <Position>3</Position>
+      <DataType>varchar(16)|0</DataType>
+    </column>
+    <column id="30" parent="17" name="bankAccountEntity_id">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="31" parent="17" name="FK32wo9womk5370rfqra9aribio">
+      <ColNames>bankAccountEntity_id</ColNames>
+    </index>
+    <key id="32" parent="17" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="33" parent="17" name="FK32wo9womk5370rfqra9aribio">
+      <ColNames>bankAccountEntity_id</ColNames>
+      <RefSchemaName>etick</RefSchemaName>
+      <RefTableName>bank_account</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="34" parent="18" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="35" parent="18" name="first_name">
+      <Position>2</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="36" parent="18" name="last_name">
+      <Position>3</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="37" parent="18" name="mellicode">
+      <Position>4</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <key id="38" parent="18" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="39" parent="19" name="next_val">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <column id="40" parent="20" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="41" parent="20" name="number_amount">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="42" parent="20" name="bankAccountEntity_id">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="43" parent="20" name="FK3r8lsc0pdmx8ecfcq8r99v6b9">
+      <ColNames>bankAccountEntity_id</ColNames>
+    </index>
+    <key id="44" parent="20" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="45" parent="20" name="FK3r8lsc0pdmx8ecfcq8r99v6b9">
+      <ColNames>bankAccountEntity_id</ColNames>
+      <RefSchemaName>etick</RefSchemaName>
+      <RefTableName>bank_account</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
