@@ -32,26 +32,26 @@ public class Main {
     private static TransactionEntity transactionEntity ;
     private static Session session;
 
+    private static String csvFile;
+    private static String line = "";
+    private static String cvsSplitBy = ",";
+    private static BufferedReader br;
 
     public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException {
         Start();
 //        Run();
 ////        Test();
-//        RunCSV();
+        RunCSV();
 //        //sqlGetter();
 //        Test();y
 // ();
-        System.out.println(111111111);
-        test2();
-        System.out.println(1111111);
+
+//        test2();
+
     }
 
     private static void test2(){
-//        Configuration cfg = new Configuration();
-//        cfg.configure("hibernate.cfg.xml");
-//        SessionFactory factory= cfg.buildSessionFactory();
-//        Session session= (Session) factory.openSession();
-//        session.beginTransaction();
+
         System.out.println("Hibernate one to many (Annotation)");
         session = HibernateUtil.getSessionFactory().openSession();
 
@@ -60,8 +60,29 @@ public class Main {
         /*///
 
         *code here
+        *
+        *
 
         *////
+
+
+
+        try  {
+
+            while ((line = br.readLine()) != null) {
+
+                // use comma as separator
+                String[] country = line.split(cvsSplitBy);
+
+
+                System.out.println("Country [code= " + country[4] + " , name=" + country[5] + "]");
+
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         session.getTransaction().commit();
 
         try {
@@ -113,6 +134,13 @@ public class Main {
     }
 
     private static void Start(){
+        br = null;
+        try {
+            URL location = Main.class.getProtectionDomain().getCodeSource().getLocation();
+            String path = location.getFile();
+            br = new BufferedReader(new FileReader(path + "../../../users.csv"));
+        }
+        catch (Exception e){}
         Logger logger = Logger.getLogger(Main.class);
         Properties prop = new Properties();
         InputStream input;
@@ -131,14 +159,12 @@ public class Main {
         }
     }
 
-    private static void Run() throws IOException {
+    private static void Read_Data() throws IOException {
         String line = null;
         String cvsSplitBy = ",";
-        BufferedReader br = null;
+
         try {
-            URL location = Main.class.getProtectionDomain().getCodeSource().getLocation();
-            String path = location.getFile();
-            br = new BufferedReader(new FileReader(path+"../../../users.csv"));
+
             String[] country;
             while((line = br.readLine()) != null){
                 // use comma as separator

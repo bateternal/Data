@@ -82,14 +82,12 @@ public class FileWorker {
         int lim;
         set.clear();
         System.out.println(set);
-        String myDriver = "com.mysql.jdbc.Driver";
-        String myUrl = "jdbc:mysql://127.0.0.1:3306/etick";
-        Class.forName(myDriver);
-        Connection conn = DriverManager.getConnection(myUrl, "root", "09127782297");
-            StringBuilder sb ;
+
+        PrintWriter pw = new PrintWriter(new File("src/main/java/users.csv"));
+            StringBuilder sb = new StringBuilder();
             for (int i = 0; i < 1000; i++) {
                 System.out.println(i);
-                sb = new StringBuilder();
+
                 lim = random.nextInt(100000) ;
                 while (set.contains(lim)){
                     lim = random.nextInt(100000);
@@ -102,36 +100,17 @@ public class FileWorker {
                 sb.append("\'taheri").append(String.valueOf(i)).append("\'");
                 sb.append(',');
                 sb.append("\'").append(setTen(lim)).append("\'");
-//                sb.append(',');
-//                sb.append("\'").append(setOctet(lim)).append("\'");
-//                sb.append(',');
-//                sb.append("\'").append(String.valueOf(lim)).append("\'");
-//                sb.append(',');
-//                sb.append("\'").append(setSixteen(lim)).append("\'");
-//                //sb.append('\n');
-                int id = 0;
-                String query = "insert into contact(first_name,last_name,melli_code) values("+sb.toString()+")";
-                PreparedStatement preparedStmt = conn.prepareStatement(query);
-                preparedStmt.executeUpdate();
-                query = "select * from contact where first_name="+name+"";
-                Statement st = conn.createStatement();
-                ResultSet rs = st.executeQuery(query);
-                while(rs.next()) {
-                    id = rs.getInt("id");
-                    query = "insert into bank_account(Number_Account,ContactID) values(" + setOctet(lim) + "," + id + ")";
-                }
-                preparedStmt = conn.prepareStatement(query);
-                preparedStmt.executeUpdate();
-                query = "select * from bank_account where ContactID="+id+"";
-                st = conn.createStatement();
-                rs = st.executeQuery(query);
-                while (rs.next()) {
-                    id = rs.getInt("id");
-                    query = "insert into card(card_number,amount,BankID) values(" + setSixteen(lim) + "," + lim + "," + id + ")";
-                }
-                preparedStmt = conn.prepareStatement(query);
-                preparedStmt.executeUpdate();
+                sb.append(',');
+                sb.append("\'").append(setOctet(lim)).append("\'");
+                sb.append(',');
+                sb.append("\'").append(String.valueOf(lim)).append("\'");
+                sb.append(',');
+                sb.append("\'").append(setSixteen(lim)).append("\'");
+                sb.append('\n');
+
             }
+        pw.write(sb.toString());
+        pw.close();
 
 
 
@@ -139,7 +118,7 @@ public class FileWorker {
         // execute the java preparedstatement
         //preparedStmt.executeUpdate();
 
-        conn.close();
+
     }
 
 

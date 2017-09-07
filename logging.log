@@ -4813,3 +4813,11 @@ Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'eti
 2017-09-08 02:05:45 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@7686a7] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
 2017-09-08 02:05:50 INFO  SchemaCreatorImpl:489 - HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@12a0c8'
 2017-09-08 02:05:50 INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/etick]
+2017-09-08 03:42:45 ERROR Main:156 - java.io.FileNotFoundException: D:\java\HelloPerformance\out\production\Office\..\..\..\src\resources\particulars.properties (The system cannot find the path specified)
+2017-09-08 03:42:53 INFO  FileWorker:26 - CSV file created!
+2017-09-08 03:45:50 ERROR Main:156 - java.io.FileNotFoundException: D:\java\HelloPerformance\out\production\Office\..\..\..\src\resources\particulars.properties (The system cannot find the path specified)
+2017-09-08 03:46:00 INFO  FileWorker:26 - CSV file created!
+2017-09-08 03:47:38 ERROR Main:156 - java.io.FileNotFoundException: D:\java\HelloPerformance\out\production\Office\..\..\..\src\resources\particulars.properties (The system cannot find the path specified)
+2017-09-08 03:47:47 INFO  FileWorker:26 - CSV file created!
+2017-09-08 03:55:59 ERROR Main:156 - java.io.FileNotFoundException: D:\java\HelloPerformance\out\production\Office\..\..\..\src\resources\particulars.properties (The system cannot find the path specified)
+2017-09-08 03:55:59 INFO  FileWorker:26 - CSV file created!

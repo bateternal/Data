@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- Database connection settings -->
+        <!-- <property name="connection.driver_class">org.hsqldb.jdbcDriver</property>
+                    <property name="connection.url">jdbc:hsqldb:hsql://localhost/TestDB</property> -->
+
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/etick</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">09127782297</property>
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">100</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">
+            org.hibernate.dialect.MySQL55Dialect
+        </property>
+
+        <!-- Enable Hibernate's automatic session context management -->
+       
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <property name="hbm2ddl.auto">create</property>
+        <mapping class="ir.etick.hibernate.ContactEntity"></mapping>
+        <mapping class="ir.etick.hibernate.BankAccountEntity"></mapping>
+        <mapping class="ir.etick.hibernate.CardEntity"></mapping>
+        <mapping class="ir.etick.hibernate.TransactionEntity"></mapping>
+
+    </session-factory>
+
+</hibernate-configuration>
