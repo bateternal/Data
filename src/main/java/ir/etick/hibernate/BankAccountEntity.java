@@ -59,7 +59,7 @@ public class BankAccountEntity {
     }
 
     @Basic
-    @Column(name = "Number_Account", nullable = true, length = 8)
+    @Column(name = "Number_Account", nullable = true, length = 10)
     public String getNumberAccount() {
         return numberAccount;
     }

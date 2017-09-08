@@ -41,7 +41,7 @@ public class ContactEntity {
     }
 
     @Basic
-    @Column(name = "mellicode", nullable = true, length = 10)
+    @Column(name = "mellicode", nullable = true, length = 12)
     public String getMellicode() {
         return mellicode;
     }
@@ -51,7 +51,7 @@ public class ContactEntity {
     }
 
     @Basic
-    @Column(name = "first_name", nullable = true, length = 10)
+    @Column(name = "first_name", nullable = true, length = 30)
     public String getFirstName() {
         return firstName;
     }
@@ -61,7 +61,7 @@ public class ContactEntity {
     }
 
     @Basic
-    @Column(name = "last_name", nullable = true, length = 10)
+    @Column(name = "last_name", nullable = true, length = 30)
     public String getLastName() {
         return lastName;
     }

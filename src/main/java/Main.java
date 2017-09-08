@@ -41,12 +41,12 @@ public class Main {
         Start();
 //        Run();
 ////        Test();
-        RunCSV();
+ //       RunCSV();
 //        //sqlGetter();
 //        Test();y
 // ();
 
-//        test2();
+       test2();
 
     }
 
@@ -68,17 +68,23 @@ public class Main {
 
 
         try  {
-
+            int i=0;
             while ((line = br.readLine()) != null) {
-
+                i++;
                 // use comma as separator
-                String[] country = line.split(cvsSplitBy);
+                System.out.println(line);
+                String[] contact = line.split(",");
 
+                Create_Contact(contact[0],contact[1],contact[2]);
+                System.out.println(contact[3]);
+                Create_BankAccount(contact[3]);
+                System.out.println(contact[4]);
+                System.out.println(i);
+                Create_Card(Integer.parseInt(contact[4]),contact[5]);
 
-                System.out.println("Country [code= " + country[4] + " , name=" + country[5] + "]");
 
             }
-
+            br.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -111,7 +117,7 @@ public class Main {
         session.save(bankAccountEntity);
     }
 
-    private static void Create_Card(int amonut,String card_number){
+    private static void Create_Card(int amonut, String card_number){
         cardEntity = new CardEntity();
         cardEntity.setAmount(amonut);
         cardEntity.setCardNumber(card_number);
@@ -138,7 +144,7 @@ public class Main {
         try {
             URL location = Main.class.getProtectionDomain().getCodeSource().getLocation();
             String path = location.getFile();
-            br = new BufferedReader(new FileReader(path + "../../../users.csv"));
+            br = new BufferedReader(new FileReader(path + "users.csv"));
         }
         catch (Exception e){}
         Logger logger = Logger.getLogger(Main.class);
