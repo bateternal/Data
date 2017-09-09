@@ -36,19 +36,27 @@ public class Main {
     private static String line = "";
     private static BufferedReader br;
 
+
+
+
+    /**
+     * MAIN
+     * program run with this
+     * @param  args
+    */
     public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException {
         Start();
+        save_data();
 //        Run();
-////        Test();
- //       RunCSV();
-//        //sqlGetter();
-//        Test();y
-// ();
-
-       save_data();
-
+//        Test();
+//        Test();
     }
 
+    /**
+     * hibernate
+     * this method save data on mysql database using hibernate
+     * void
+     */
     private static void save_data(){
         logger.info("Hibernate one to many (Annotation)");
         try {
@@ -73,6 +81,12 @@ public class Main {
         }
     }
 
+    /**
+     * help for having better code
+     * @param first_name
+     * @param last_name
+     * @param melli_code
+     */
     private static void Create_Contact(String first_name,String last_name,String melli_code){
         contactEntity= new ContactEntity();
 
@@ -82,6 +96,10 @@ public class Main {
         session.save(contactEntity);
     }
 
+    /**
+     * help for having better code
+     * @param number_account
+     */
     private static void Create_BankAccount(String number_account){
         bankAccountEntity = new BankAccountEntity();
         bankAccountEntity.setNumberAccount(number_account);
@@ -92,6 +110,11 @@ public class Main {
         session.save(bankAccountEntity);
     }
 
+    /**
+     * help for having better code
+     * @param amonut
+     * @param card_number
+     */
     private static void Create_Card(int amonut, String card_number){
         cardEntity = new CardEntity();
         cardEntity.setAmount(amonut);
@@ -103,6 +126,11 @@ public class Main {
         session.save(cardEntity);
     }
 
+    /**
+     * help for having better code
+     * @param number_amount
+     * @param destination_numberaccount
+     */
     private static void Create_Transaction(int number_amount,String destination_numberaccount){
         transactionEntity = new TransactionEntity();
         transactionEntity.setNumberAmount(number_amount);
@@ -114,6 +142,9 @@ public class Main {
         session.save(transactionEntity);
     }
 
+    /**
+     * for to make ready primary things
+     */
     private static void Start(){
         br = null;
         try {
