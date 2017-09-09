@@ -32,9 +32,8 @@ public class Main {
     private static TransactionEntity transactionEntity ;
     private static Session session;
 
-    private static String csvFile;
+
     private static String line = "";
-    private static String cvsSplitBy = ",";
     private static BufferedReader br;
 
     public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException {
@@ -46,55 +45,31 @@ public class Main {
 //        Test();y
 // ();
 
-       test2();
+       save_data();
 
     }
 
-    private static void test2(){
-
-        System.out.println("Hibernate one to many (Annotation)");
-        session = HibernateUtil.getSessionFactory().openSession();
-
-        session.beginTransaction();
-
-        /*///
-
-        *code here
-        *
-        *
-
-        *////
-
-
-
-        try  {
-            int i=0;
+    private static void save_data(){
+        logger.info("Hibernate one to many (Annotation)");
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
             while ((line = br.readLine()) != null) {
-                i++;
                 // use comma as separator
-                System.out.println(line);
                 String[] contact = line.split(",");
 
-                Create_Contact(contact[0],contact[1],contact[2]);
-                System.out.println(contact[3]);
+                Create_Contact(contact[0], contact[1], contact[2]);
                 Create_BankAccount(contact[3]);
-                System.out.println(contact[4]);
-                System.out.println(i);
-                Create_Card(Integer.parseInt(contact[4]),contact[5]);
-
-
+                Create_Card(Integer.parseInt(contact[4]), contact[5]);
             }
             br.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
-        session.getTransaction().commit();
-
-        try {
+            session.getTransaction().commit();
             HibernateUtil.stop();
+        }catch (NullPointerException e){
+            logger.error(e);
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error(e);
         }
     }
 
@@ -151,7 +126,6 @@ public class Main {
         Properties prop = new Properties();
         InputStream input;
         URL location = Main.class.getProtectionDomain().getCodeSource().getLocation();
-        //String locationi = Main.class.getResource("").getPath();
         try {
             input = new FileInputStream(location.getFile()+"../../../src/resources/particulars.properties");
             prop.load(input);
@@ -243,13 +217,9 @@ public class Main {
     }
     */
 
-    private static void Test(){
-        System.out.println(map.get("71528665"));
-    }
-
-    private static void RunCSV() throws SQLException, ClassNotFoundException {
-        FileWorker csv = new FileWorker();
-        csv.Write();
+    private static void Run() throws SQLException, ClassNotFoundException {
+        FileWorker fileWorker = new FileWorker();
+        fileWorker.Write();
     }
 }
 
