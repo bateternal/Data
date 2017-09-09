@@ -1,4 +1,4 @@
-package ir.etick.tools;
+package ir.etick.Static;
 
 /**
  * Created by abolfazl on 8/13/2017.

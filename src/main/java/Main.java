@@ -6,7 +6,7 @@ import ir.etick.hibernate.TransactionEntity;
 import ir.etick.tools.FileWorker;
 import ir.etick.model.HashMap;
 import ir.etick.model.Map;
-import ir.etick.tools.StaticNameStore;
+import ir.etick.Static.StaticNameStore;
 import ir.etick.utils.HibernateUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;

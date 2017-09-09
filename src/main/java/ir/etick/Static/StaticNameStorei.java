@@ -1,4 +1,4 @@
-package ir.etick.tools;
+package ir.etick.Static;
 
 import org.apache.log4j.Logger;
 
